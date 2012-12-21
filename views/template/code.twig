@@ -1,0 +1,273 @@
+{% extends "layout/base.twig" %}
+
+{% block footer_js %}
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/script.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="row clearfix">
+    <div class="span6">
+        <div class="clearfix">
+            <h2>Your Form</h2>
+            <hr>
+            <div id="build">
+                {{ form | raw }}
+            </div>
+        </div>
+    </div>
+
+    <div class="span6">
+    <div class="tabbable">
+    <ul class="nav nav-tabs" id="navtab">
+        <li class="active"><a href="#1" data-toggle="tab">Code</a></li>
+    </ul>
+    <div class="form-horizontal" id="components">
+    <fieldset>
+    <div class="tab-content">
+
+    <div class="tab-pane active" id="1">
+        <div class="alert alert-block alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4>You are the best!</h4>
+            The form has been successfully saved. Check the code below to include it in your site.
+        </div>
+        <p>Copy and paste the code below in your site. <br />All the e-mails from this contact form will be sent to <em>{{ email }}</em>.</p>
+        <textarea class="span6 autoselect">
+<iframe src="http://{{ server }}/form/{{ code }}/{{ hash }}" width="500px" height="{{ height }}px" frameborder="0"></iframe></textarea>
+    </div>
+
+    <div class="tab-pane" id="2">
+
+        <div class="control-group component" rel="popover" title="Search Input" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <label class='control-label'>Options: </label>
+                          <textarea style='min-height: 200px' id='option'> </textarea>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+
+            <!-- Select Basic -->
+            <label class="control-label valtype" data-valtype="label">Select - Basic</label>
+            <div class="controls">
+                <select class="input-xlarge valtype" data-valtype="option">
+                    <option>Enter</option>
+                    <option>Your</option>
+                    <option>Options</option>
+                    <option>Here!</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="control-group component" rel="popover" title="Search Input" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <label class='control-label'>Options: </label>
+                          <textarea style='min-height: 200px' id='option'></textarea>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+
+            <!-- Select Multiple -->
+            <label class="control-label valtype" data-valtype="label">Select - Multiple</label>
+            <div class="controls">
+                <select class="input-xlarge valtype" multiple="multiple" data-valtype="option">
+                    <option>Enter</option>
+                    <option>Your</option>
+                    <option>Options</option>
+                    <option>Here!</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="tab-pane" id="3">
+
+        <div class="control-group component" rel="popover" title="Multiple Checkboxes" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <label class='control-label'>Options: </label>
+                          <textarea style='min-height: 200px' id='checkboxes'> </textarea>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+            <label class="control-label valtype" data-valtype="label">Checkboxes</label>
+            <div class="controls valtype" data-valtype="checkboxes">
+
+                <!-- Multiple Checkboxes -->
+                <label class="checkbox">
+                    <input type="checkbox" value="Option one">
+                    Option one
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="Option two">
+                    Option two
+                </label>
+            </div>
+
+        </div>
+
+        <div class="control-group component" rel="popover" title="Multiple Radios" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <label class='control-label'>Group Name Attribute</label> <input class='input-large' type='text' name='name' id='name'>
+                          <label class='control-label'>Options: </label>
+                          <textarea style='min-height: 200px' id='radios'></textarea>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+            <label class="control-label valtype" data-valtype="label">Radio buttons</label>
+            <div class="controls valtype" data-valtype="radios">
+
+                <!-- Multiple Radios -->
+                <label class="radio">
+                    <input type="radio" value="Option one" name="group" checked="checked">
+                    Option one
+                </label>
+                <label class="radio">
+                    <input type="radio" value="Option two" name="group">
+                    Option two
+                </label>
+            </div>
+
+        </div>
+
+        <div class="control-group component" rel="popover" title="Inline Checkboxes" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <textarea style='min-height: 200px' id='inline-checkboxes'></textarea>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+            <label class="control-label valtype" data-valtype="label">Inline Checkboxes</label>
+
+            <!-- Multiple Checkboxes -->
+            <div class="controls valtype" data-valtype="inline-checkboxes">
+                <label class="checkbox inline">
+                    <input type="checkbox" value="1"> 1
+                </label>
+                <label class="checkbox inline">
+                    <input type="checkbox" value="2"> 2
+                </label>
+                <label class="checkbox inline">
+                    <input type="checkbox" value="3"> 3
+                </label>
+            </div>
+
+        </div>
+
+        <div class="control-group component" rel="popover" title="Inline radioes" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <label class='control-label'>Group Name Attribute</label> <input class='input-large' type='text' name='name' id='name'>
+                          <textarea style='min-height: 200px' id='inline-radios'></textarea>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+            <label class="control-label valtype" data-valtype="label">Inline radios</label>
+            <div class="controls valtype" data-valtype="inline-radios">
+
+                <!-- Inline Radios -->
+                <label class="radio inline">
+                    <input type="radio" value="1" checked="checked" name="group">
+                    1
+                </label>
+                <label class="radio inline">
+                    <input type="radio" value="2" name="group">
+                    2
+                </label>
+                <label class="radio inline">
+                    <input type="radio" value="3">
+                    3
+                </label>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="tab-pane" id="4">
+        <div class="control-group component" rel="popover" title="File Upload" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+            <label class="control-label valtype" data-valtype="label">File Button</label>
+
+            <!-- File Upload -->
+            <div class="controls">
+                <input class="input-file" id="fileInput" type="file">
+            </div>
+        </div>
+
+        <div class="control-group component" rel="popover" title="Search Input" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <label class='control-label'>Button Text</label> <input class='input-large' type='text' name='label' id='button'>
+                          <label class='control-label' id=''>Type: </label>
+                          <select class='input' id='color'>
+                            <option id='btn-default'>Default</option>
+                            <option id='btn-primary'>Primary</option>
+                            <option id='btn-info'>Info</option>
+                            <option id='btn-success'>Success</option>
+                            <option id='btn-warning'>Warning</option>
+                            <option id='btn-danger'>Danger</option>
+                            <option id='btn-inverse'>Inverse</option>
+                          </select>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+            <label class="control-label valtype" data-valtype="label">Button</label>
+
+            <!-- Button -->
+            <div class="controls valtype"  data-valtype="button">
+                <button class='btn btn-success'>Button</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tab-pane" id="5">
+        Test
+    </div>
+    </fieldset>
+    </div>
+    </div>
+    </div> <!-- row -->
+{% endblock %}

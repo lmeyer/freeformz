@@ -1,0 +1,50 @@
+{% extends "layout/naked.twig" %}
+
+{% block content %}
+    <form action="/form/{{ code }}/{{ hash }}" method="post" class="form-horizontal">
+        {% for key,field in form if 'hidden' not in field.all['block_prefixes'] %}
+            <div class="control-group">
+                {{ form_label(field, null, { 'label_attr': {'class': 'control-label'}}) }}
+                <div class="controls">
+                    {% set attr = field.all['attr'] %}
+                    {{ form_errors(field) }}
+
+                    {% if (attr['add-on'] is defined) and (attr['add-on'] != '') %}
+                        <div class="input-{{ attr['add-on'] }}">
+                            {% if (attr['add-on'] == 'prepend') and (attr['add-on-text'] != '') %}
+                                <span class="add-on">{{ attr['add-on-text'] }}</span>
+                            {% endif %}
+                    {% endif %}
+
+                    {{ form_widget(field) }}
+
+                    {% if (attr['add-on'] is defined) and (attr['add-on-text'] != '') %}
+                        {% if attr['add-on'] == 'append' %}
+                            <span class="add-on">{{ attr['add-on-text'] }}</span>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if (attr['add-on'] is defined) and (attr['add-on'] != '') %}
+                        </div>
+                    {% endif %}
+
+                    {% if attr['data-help'] is defined %}
+                        <p class="help-block">{{ attr['data-help'] }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% if btns[loop.index] is defined %}
+                <div class="control-group">
+                    <label class="control-label">{{ btns[loop.index]['label'] }}</label>
+                    <div class="controls">
+                        <input type="submit" class="{{ btns[loop.index]['class'] }}" value='{{ btns[loop.index]['value'] }}' >
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        {{ form_rest(form) }}
+    </form>
+{% endblock %}
+
+
+

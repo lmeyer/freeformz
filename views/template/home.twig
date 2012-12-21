@@ -1,0 +1,249 @@
+{% extends "layout/base.twig" %}
+
+{% block footer_js %}
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/script.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="row clearfix">
+    <div class="span6">
+        <div class="clearfix">
+            <h2>Your Form</h2>
+            <hr>
+            <div id="build">
+                <form id="target" class="form-horizontal empty">
+                    <fieldset>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="span6">
+    <h2>Drag & Drop components</h2>
+    <hr>
+    <div class="tabbable">
+    <ul class="nav nav-tabs" id="navtab">
+        <li class="active"><a href="#1" data-toggle="tab">Input</a></li>
+        <li class><a href="#2" data-toggle="tab">Button</a></li>
+        <li class><a id="generatedtab"  href="#3" data-toggle="tab">Generated Source</a></li>
+        <li class><a id="sourcetab" href="#4" data-toggle="tab">Save form</a></li>
+    </ul>
+    <div class="form-horizontal" id="components">
+    <fieldset>
+    <div class="tab-content">
+
+    <div class="tab-pane active inputs" id="1">
+
+        <div class="control-group component" data-type="text" rel="popover" title="Text Input" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <label class='control-label'>Placeholder</label> <input type='text' name='placeholder' id='placeholder'>
+                          <label class='control-label'>Help Text</label> <input type='text' name='help' id='help'>
+                          <label class='checkbox'>Required <input type='checkbox' name='required' id='required'></label>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+
+            <!-- Text input-->
+            <label class="control-label valtype" for="input01" data-valtype='label'>Text input</label>
+            <div class="controls">
+                <input type="text" placeholder="placeholder" class="input-xlarge valtype" data-valtype="placeholder" >
+                <p class="help-block valtype" data-valtype='help'>Supporting help text</p>
+            </div>
+        </div>
+
+
+        <div class="control-group component" data-type="text" rel="popover" title="Email Input" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <label class='control-label'>Placeholder</label> <input type='text' name='placeholder' id='placeholder'>
+                          <label class='control-label'>Help Text</label> <input type='text' name='help' id='help'>
+                          <label class='checkbox'>Required <input type='checkbox' name='required' id='required'></label>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+
+            <!-- Email input-->
+            <label class="control-label valtype" for="input01" data-valtype='label'>Email input</label>
+            <div class="controls">
+                <input type="email" placeholder="example@domain.tld" class="input-xlarge valtype" data-valtype="placeholder" >
+                <p class="help-block valtype" data-valtype='help'>Supporting help text</p>
+            </div>
+        </div>
+
+        <div class="control-group component" data-type="text" rel="popover" title="Url Input" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <label class='control-label'>Placeholder</label> <input type='text' name='placeholder' id='placeholder'>
+                          <label class='control-label'>Help Text</label> <input type='text' name='help' id='help'>
+                          <label class='checkbox'>Required <input type='checkbox' name='required' id='required'></label>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+
+            <!-- Url input-->
+            <label class="control-label valtype" for="input01" data-valtype='label'>Url input</label>
+            <div class="controls">
+                <input type="url" placeholder="http://www.domain.com" class="input-xlarge valtype" data-valtype="placeholder" >
+                <p class="help-block valtype" data-valtype='help'>Supporting help text</p>
+            </div>
+        </div>
+
+
+        <div class="control-group component" data-type="prep-text" rel="popover" title="Prepended Text Input" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <label class='control-label'>Prepend</label> <input type='text' name='prepend' id='prepend'>
+                          <label class='control-label'>Placeholder</label> <input type='text' name='placeholder' id='placeholder'>
+                          <label class='control-label'>Help Text</label> <input type='text' name='help' id='help'>
+                          <label class='checkbox'>Required <input type='checkbox' name='required' id='required'></label>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+
+            <!-- Prepended text-->
+            <label class="control-label valtype" data-valtype="label">Prepended text</label>
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on valtype" data-valtype="prepend">^_^</span>
+                    <input class="span2 valtype" placeholder="placeholder" id="prependedInput" type="text" data-valtype="placeholder">
+                </div>
+                <p class="help-block valtype" data-valtype="help">Supporting help text</p>
+            </div>
+
+        </div>
+
+
+        <div class="control-group component" data-type="app-text" rel="popover" title="Appended Text Input" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <label class='control-label'>Appepend</label> <input type='text' name='append' id='append'>
+                          <label class='control-label'>Placeholder</label> <input type='text' name='placeholder' id='placeholder'>
+                          <label class='control-label'>Help Text</label> <input type='text' name='help' id='help'>
+                          <label class='checkbox'>Required <input type='checkbox' name='required' id='required'></label>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+
+            <!-- Appended input-->
+            <label class="control-label valtype" data-valtype="label">Appended text</label>
+            <div class="controls">
+                <div class="input-append">
+                    <input class="span2 valtype" data-valtype="placeholder" placeholder="placeholder" type="text">
+                    <span class="add-on valtype" data-valtype="append">^_^</span>
+                </div>
+                <p class="help-block valtype" data-valtype="help">Supporting help text</p>
+            </div>
+
+        </div>
+
+
+        <div class="control-group component" rel="popover" title="Search Input" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <label class='checkbox'>Required <input type='checkbox' name='required' id='required'></label>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+
+            <!-- Textarea -->
+            <label class="control-label valtype" data-valtype="label">Textarea</label>
+            <div class="controls">
+                <div class="textarea">
+                    <textarea type="" class="valtype" data-valtype="checkbox" /> </textarea>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="tab-pane inputs" id="2">
+        <div class="control-group component" rel="popover" title="Search Input" trigger="manual"
+             data-content="
+                      <form class='form'>
+                        <div class='controls'>
+                          <label class='control-label'>Label Text</label> <input class='input-large' type='text' name='label' id='label'>
+                          <label class='control-label'>Button Text</label> <input class='input-large' type='text' name='label' id='button'>
+                          <label class='control-label' id=''>Type: </label>
+                          <select class='input' id='color'>
+                            <option id='btn-default'>Default</option>
+                            <option id='btn-primary'>Primary</option>
+                            <option id='btn-info'>Info</option>
+                            <option id='btn-success'>Success</option>
+                            <option id='btn-warning'>Warning</option>
+                            <option id='btn-danger'>Danger</option>
+                            <option id='btn-inverse'>Inverse</option>
+                          </select>
+                          <hr/>
+                          <button class='btn btn-info'>Save</button><button class='btn btn-danger'>Cancel</button>
+                        </div>
+                      </form>"
+                >
+            <label class="control-label valtype" data-valtype="label">Button</label>
+
+            <!-- Button -->
+            <div class="controls valtype"  data-valtype="button">
+                <button class='btn btn-success'>Button</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="3">
+        <form>
+            <p>You can copy the generated HTML code here and use it where you want.</p>
+            <textarea id="source" class="span6"></textarea>
+        </form>
+    </div>
+
+    <div class="tab-pane" id="4">
+        <form action="" method="post" class="form-horizontal">
+            <p>Which e-mail address shall the form data be sent to?</p>
+            {{ form_errors(form) }}
+            <div class="control-group">
+                {{ form_label(form.email, null, { 'label_attr': {'class': 'control-label'}}) }}
+                <div class="controls">
+                    {{ form_widget(form.email) }}
+                </div>
+            </div>
+            {{ form_widget(form.config) }}
+            <div class="control-group">
+                <div class="controls">
+                    <input class="btn btn-info" type="submit" name="submit" value="Create the form" />
+                </div>
+            </div>
+
+            {{ form_rest(form) }}
+        </form>
+    </div>
+    </fieldset>
+    </div>
+    </div>
+    </div> <!-- row -->
+{% endblock %}

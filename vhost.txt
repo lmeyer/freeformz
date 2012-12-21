@@ -1,0 +1,26 @@
+# Front en dev
+<VirtualHost *:80>
+
+ ServerName www.freeformz.dev
+  DocumentRoot "D:\Work\freeformz\web"
+  DirectoryIndex index.php
+
+	RewriteEngine On
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+
+  <Directory "d:/work/freeformz/web">
+    AllowOverride All
+    Allow from All
+    <IfModule mod_rewrite.c>
+    	#importation du .htaccess
+    	RewriteEngine On
+		  RewriteRule ^$ index.html [QSA]
+	  	RewriteRule ^([^.]+)$ $1.html [QSA]
+	  	RewriteCond %{REQUEST_FILENAME} !-f
+	  	RewriteRule ^(.*)$ index.php [QSA,L]
+    </IfModule>
+  </Directory>
+
+</VirtualHost>

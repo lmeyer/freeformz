@@ -1,0 +1,84 @@
+body {
+	font-size: 13px;
+}
+
+.hero-unit {
+	background: url('../img/header.png') repeat-x left top;
+	color: white;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
+textarea {
+	width: 270px;
+	min-height: 150px;
+}
+
+.popover {
+	width: 270px;
+}
+
+.help-block {
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 0;
+	color: #999999;
+}
+
+.required::after {
+	content: ' *';
+	color: #b94a48;
+}
+
+#components {
+	min-height: 600px;
+}
+#target {
+	min-height: 200px;
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+#target.empty {
+	background: rgba(0, 0, 0, 0.2);
+	position: relative;
+}
+#target.empty:before {
+	color: #ffffff;
+	content: "Drop items here";
+	font-size: 36px;
+	font-weight: bold;
+	left: 140px;
+	position: absolute;
+	text-align: center;
+	top: 80px;
+}
+#target .component {
+	border: 1px solid #fff;
+}
+#temp {
+	width: 500px;
+	background: white;
+	border: 1px dotted #ccc;
+	border-radius: 10px;
+}
+
+.popover-content form {
+	margin: 0 auto;
+	width: 213px;
+}
+.popover-content form .btn {
+	margin-right: 10px
+}
+#source {
+	min-height: 500px;
+}
+
+.tab-pane.inputs .control-group:hover, .tab-pane.inputs .control-group:hover * {
+	cursor: move;
+}
+.tab-pane.inputs .control-group:hover {
+	background: #fafdff;
+}
