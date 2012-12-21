@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints as Assert;
 
 require_once __DIR__.'/../vendor/autoload.php';
-require_once __DIR__.'/../vendor/freeformz_functions.php';
+require_once __DIR__.'/../lib/freeformz_functions.php';
 
 $app = new Silex\Application();
 $app['debug'] = true;
