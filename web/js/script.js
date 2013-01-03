@@ -82,6 +82,7 @@ $(document).ready(function(){
 				var mu_mouseY = mu.pageY;
 				var tar_pos = $target.position();
 
+				$("#target.empty fieldset").empty();
 				$("#target").removeClass('empty');
 
 				$("#target .component").css({"border-top" : "1px solid white", "border-bottom" : "none"});
