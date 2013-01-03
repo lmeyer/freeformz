@@ -74,7 +74,23 @@ $app->match('/', function (Request $request) use ($app) {
 			$sql = "INSERT INTO form VALUES (null, ?, ?, ?, ?, ?)";
 			$app['db']->executeUpdate($sql, array($code, $hash, $config, $email, 0));
 
-			//return $app->redirect('/hello');
+			$content = $app['twig']->render('email/remember.twig', array(
+				'code' => $code,
+				'hash' => $hash,
+				'email' => $email,
+				'height' => $height,
+				'server' => $_SERVER['SERVER_NAME']
+			));
+
+			$message = \Swift_Message::newInstance()
+				->setContentType('text/html')
+				->setSubject('[Freeformz] Your Form code')
+				->setFrom(array('service@freeformz.com'))
+				->setTo(array($email))
+				->setBody($content);
+
+			$app['mailer']->send($message);
+
 			return $app['twig']->render('template/code.twig', array(
 				'pageName' => 'code',
 				'form' => $data['config'],

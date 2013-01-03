@@ -1,20 +1,22 @@
 <html>
 <head>
-    <title>Freeformz contact form message</title>
+    <title>Freeformz</title>
 </head>
 <body>
-    <table >
-        {% for key, data in datas %}
-            {% if data != '' %}
-                <tr style="background-color: {{ cycle(['#cccccc','#aaaaaa'],loop.index) }}">
-                    <td style="padding: 5px">{{ key }}</td>
-                    <td style="padding: 5px">{{ data }}</td>
-            {% endif %}
-        {% endfor %}
-    </table>
+    <h4>You are the best!</h4>
+    The form has been successfully saved. Check the code below to include it in your site.
     <br />
     <br />
-    Sender IP : {{ ip }}
+    Copy and paste the code below in your site. <br />All the e-mails from this contact form will be sent to <em>{{ email }}</em>.
+    <br />
+    <br />
+    -----------------------------------------------------------------
+    <br />
+    {% filter escape %}
+        <iframe src="http://{{ server }}/form/{{ code }}/{{ hash }}" width="500px" height="{{ height }}px" frameborder="0"></iframe>
+    {% endfilter %}
+    <br />
+    -----------------------------------------------------------------
     <br />
     <br />
     You are receiving this e-mail message because you have registered a contact form at <a href="http://www.freeformz.com">www.freeformz.com</a>
