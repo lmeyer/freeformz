@@ -1,10 +1,11 @@
 <?php
 
-//@TODO Ability to add special char in label
 //@TODO Check code and hash availability before inserting
-//@TODO translation ? (some words in css)
-//@TODO add other input types
-//@TODO add a redirect when form saved and create a preview+stats form page via /form/preview/code/hash
+//@TODO Translation ? (some words in css)
+//@TODO Add other input types
+//@TODO Add a redirect when form saved and create a preview+stats form page via /form/preview/code/hash
+//@TODO Bit more security
+//@TODO Ability to send to multiple emails
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -37,6 +38,8 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 $app->register(new Silex\Provider\FormServiceProvider());
 $app->register(new Silex\Provider\ValidatorServiceProvider());
 $app->register(new Silex\Provider\SwiftmailerServiceProvider());
+
+// Dev conf
 if (true == $app['debug']) {
 	$app['swiftmailer.options'] = array(
 		'host' => 'smtp.free.fr',
@@ -167,7 +170,8 @@ $app->match('/form/{code}/{hash}', function($code, $hash, Request $request) use(
 				break;
 		}
 
-		$form->add( str_replace(' ', '_', $widget['label']), $widget['type'], array(
+		$form->add( freeformzFunctions::slugify($widget['label']), $widget['type'], array(
+			'label' => $widget['label'],
 			'required' => isset($widget['required']) ? true : false,
 			'constraints' => $constraints,
 			'attr' => $attr
