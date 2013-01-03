@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Freeformz contact form message</title>
+</head>
+<body>
+    <table >
+        {% for key, data in datas %}
+            {% if data != '' %}
+                <tr style="background-color: {{ cycle(['#cccccc','#aaaaaa'],loop.index) }}">
+                    <td style="padding: 5px">{{ key }}</td>
+                    <td style="padding: 5px">{{ data }}</td>
+            {% endif %}
+        {% endfor %}
+    </table>
+    <br />
+    <br />
+    Sender IP : {{ ip }}
+    <br />
+    <br />
+    You are receiving this e-mail message because you have registered a contact form at <a href="http://www.freeformz.com">www.freeformz.com</a>
+</body>
+</html>
