@@ -28,7 +28,7 @@
                         </div>
                     {% endif %}
 
-                    {% if attr['data-help'] is defined %}
+                    {% if attr['data-help'] is defined and attr['data-help'] is not empty %}
                         <p class="help-block">{{ attr['data-help'] }}</p>
                     {% endif %}
                 </div>

@@ -79,25 +79,29 @@ class freeformzFunctions{
 	}
 	static public function getFormHeight($config) {
 		$height = 0;
+		$nb_buttons = 0;
 		$config = unserialize($config);
 		foreach ($config as $widget) {
-			if($widget['type'] == 'button') {
-				$height = $height+32;
-				continue;
-			}
-
-			if (isset($widget['help'])) {
+			if (isset($widget['help']) && $widget['help']!='') {
 				$height = $height+25;
+
 			}
 
 			if('textarea' == $widget['type']){
-				$height = $height+161;
+				$height = $height+160;
 			} elseif('button' == $widget['type']) {
-				$height = $height+32;
+				$height = $height+30;
+				$nb_buttons++;
 			} else {
-				$height = $height+36;
+				$height = $height+30;
 			}
 			$height = $height+20;
+
+		}
+
+		if (!$nb_buttons) {
+			//Add height for the automatic button if no button setted
+			$height = $height+30;
 		}
 
 		return $height;

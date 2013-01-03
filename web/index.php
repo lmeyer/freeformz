@@ -1,11 +1,5 @@
 <?php
 
-//@TODO Translation ?
-//@TODO Add other input types
-//@TODO Add a redirect when form saved and create a preview+stats form page via /form/preview/code/hash
-//@TODO Bit more security
-//@TODO Ability to send to multiple emails
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints as Assert;
