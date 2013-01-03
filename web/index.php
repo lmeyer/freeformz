@@ -66,8 +66,13 @@ $app->match('/', function (Request $request) use ($app) {
 		if ($form->isValid()) {
 			$data = $form->getData();
 
-			$code = FreeformzFunctions::generateKey(7);
-			$hash = FreeformzFunctions::generateKey(10);
+			do {
+				$code = FreeformzFunctions::generateKey(7);
+				$hash = FreeformzFunctions::generateKey(10);
+
+				$sql = "SELECT id FROM form WHERE code = ? OR hash = ?";
+				$found = $app['db']->fetchAssoc($sql, array($code, $hash));
+			} while ($found);
 			$config = FreeformzFunctions::compileForm($data['config']);
 			$height = FreeformzFunctions::getFormHeight($config);
 			$email = $data['email'];
