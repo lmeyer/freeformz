@@ -1,7 +1,6 @@
 <?php
 
-//@TODO Check code and hash availability before inserting
-//@TODO Translation ? (some words in css)
+//@TODO Translation ?
 //@TODO Add other input types
 //@TODO Add a redirect when form saved and create a preview+stats form page via /form/preview/code/hash
 //@TODO Bit more security
