@@ -1,4 +1,15 @@
 $(document).ready(function(){
+
+	$("#target").delegate(".control-group", "hover", function(md){
+		$(this).tooltip({
+			'placement' : 'top',
+			'forcetitle' : 'Click to Edit'
+		});
+	});
+	$("#target").delegate(".control-group", "mousedown", function(md){
+		$(this).tooltip('hide');
+	});
+
 	$(".form-horizontal").delegate(".component", "mousedown", function(md){
 		$(".popover").hide();
 
