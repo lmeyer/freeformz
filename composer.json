@@ -1,6 +1,8 @@
 {
     "require": {
+        "damien-list/phpquery-1": "dev-master",
         "doctrine/dbal": "2.2.*",
+        "igorw/config-service-provider": "1.0.*@dev",
         "silex/silex": "1.0.*@dev",
         "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev",
         "symfony/twig-bridge": "2.1.*",
@@ -9,7 +11,6 @@
         "symfony/translation": "2.1.*",
         "symfony/locale": "2.1.*",
         "symfony/config": "2.1.*",
-        "twig/twig": ">=1.8,<2.0-dev",
-        "damien-list/phpquery-1": "dev-master"
+        "twig/twig": ">=1.8,<2.0-dev"
     }
 }

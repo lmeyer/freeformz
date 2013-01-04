@@ -8,11 +8,11 @@ require_once __DIR__.'/../vendor/autoload.php';
 require_once __DIR__.'/../lib/freeformz_functions.php';
 
 $app = new Silex\Application();
-$app['debug'] = true;
-$app['zilex.index'] = 'home';
+$env = getenv('APP_ENV') ?: 'prod';
 
 // Services
 
+$app->register(new Igorw\Silex\ConfigServiceProvider(__DIR__."/../config/$env.json"));
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
 	'twig.path' => __DIR__.'/../views',
 ));
@@ -22,23 +22,20 @@ $app->register(new Silex\Provider\TranslationServiceProvider(), array(
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 	'db.options' => array(
 		'driver'   => 'pdo_mysql',
-		'host'     => 'localhost',
-		'dbname'     => 'freeformz',
-		'user'     => 'root',
-		'password'     => '',
+		'host'     => $app['database.host'],
+		'dbname'     => $app['database.dbname'],
+		'user'     => $app['database.user'],
+		'password'     => $app['database.password'],
 	),
 ));
 $app->register(new Silex\Provider\FormServiceProvider());
 $app->register(new Silex\Provider\ValidatorServiceProvider());
 $app->register(new Silex\Provider\SwiftmailerServiceProvider());
 
-// Dev conf
-if (true == $app['debug']) {
-	$app['swiftmailer.options'] = array(
-		'host' => 'smtp.free.fr',
-		'port' => '25'
-	);
-}
+$app['swiftmailer.options'] = array(
+	'host' => $app['mailer.host'],
+	'port' => $app['mailer.port']
+);
 
 // Controlers
 

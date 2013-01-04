@@ -1,0 +1,10 @@
+{
+    "debug": true,
+    "zilex.index" : "home",
+    "database.host" : "localhost",
+    "database.dbname" : "freeformz",
+    "database.user" : "root",
+    "database.password" : "",
+    "mailer.host" : "smtp.free.fr",
+    "mailer.port" : "25"
+}
