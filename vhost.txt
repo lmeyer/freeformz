@@ -1,14 +1,15 @@
 # Front en dev
 <VirtualHost *:80>
 
- ServerName www.freeformz.dev
+  ServerName www.freeformz.dev
   DocumentRoot "D:\Work\freeformz\web"
   DirectoryIndex index.php
 
-	RewriteEngine On
+  RewriteEngine On
 
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  SetEnv APP_ENV dev
 
   <Directory "d:/work/freeformz/web">
     AllowOverride All
