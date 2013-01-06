@@ -82,7 +82,7 @@ $app->match('/', function (Request $request) use ($app) {
 			$message = \Swift_Message::newInstance()
 				->setContentType('text/html')
 				->setSubject('[Freeformz] Your Form code')
-				->setFrom(array('service@freeformz.com'))
+				->setFrom(array('service@freeformz.net'))
 				->setTo(array($email))
 				->setBody($content);
 
@@ -216,7 +216,7 @@ $app->match('/form/{code}/{hash}', function($code, $hash, Request $request) use(
 			$message = \Swift_Message::newInstance()
 				->setContentType('text/html')
 				->setSubject('[Freeformz] contact form message')
-				->setFrom(array('service@freeformz.com'))
+				->setFrom(array('service@freeformz.net'))
 				->setTo(array($email))
 				->setBody($content);
 
