@@ -28,6 +28,10 @@ textarea {
 	color: #999999;
 }
 
+.naked {
+	background: transparent;
+}
+
 .required::after {
 	content: ' *';
 	color: #b94a48;

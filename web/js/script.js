@@ -320,9 +320,3 @@ $(document).ready(function(){
 		});
 	});
 });
-
-function updateIframeSize(x,y){
-	if (x != '') {
-		$('#' + x).height(y + 'px');
-	}
-}
